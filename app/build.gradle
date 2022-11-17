@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.jkimtech.bursaryadmin'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.jkimtech.bursaryadmin"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -48,6 +48,6 @@ implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
     implementation("com.opensooq.supernova:gligar:1.1.0")
 
 
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 }
