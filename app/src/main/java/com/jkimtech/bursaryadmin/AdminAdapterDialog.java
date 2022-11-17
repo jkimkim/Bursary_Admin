@@ -121,6 +121,7 @@ public class AdminAdapterDialog extends DialogFragment {
                 }
             }
 
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 progressDialog.dismiss();

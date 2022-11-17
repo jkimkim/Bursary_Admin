@@ -26,7 +26,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.Holder> {
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.application_card, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.applicant_data, parent, false);
         Holder holder = new Holder(view);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
