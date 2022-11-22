@@ -34,27 +34,29 @@
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         android:textColor="@color/black"
         android:textStyle="bold" />
+
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/applicationDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-        android:textStyle="normal"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_toEndOf="@+id/applicationId"
-        android:text="@string/application_date"
         android:padding="1dp"
-        android:id="@+id/applicationDate"
-        android:layout_margin="10dp"/>
+        android:text="@string/application_date"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/black"
+        android:textStyle="normal" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/student_details"
-        android:layout_centerHorizontal="false"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
         android:padding="5dp"
         android:text="@string/name"
