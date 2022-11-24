@@ -43,6 +43,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.Holder> {
         holder.statusView.setText(upload.getStatus());
         holder.DateView.setText(upload.getAppDate());
         holder.IdView.setText(upload.getUploadId());
+        holder.nameView.setText(upload.getName());
 
     }
 
@@ -52,7 +53,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.Holder> {
     }
 
     public static class Holder extends RecyclerView.ViewHolder {
-        MaterialTextView IdView, DateView, statusView;
+        MaterialTextView IdView, DateView, statusView, nameView, adnoView, courseView, yearView, emailView, phoneView, addressView;
 
         public Holder(@NonNull View itemView) {
             super(itemView);

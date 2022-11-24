@@ -17,7 +17,7 @@ public class Fetcher {
     private ValueEventListener eventListener, genderListener;
 
     public void fetchApplications(CompleteListener listener) {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("requests");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("requests, uploads, users");
         eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
