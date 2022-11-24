@@ -13,6 +13,7 @@ public class Upload implements Serializable {
     String name;
     String email;
     String phone;
+    String date;
     String admNo;
     String course;
     String institution;
@@ -28,7 +29,7 @@ public class Upload implements Serializable {
     String subLocation;
     String village;
 
-    public Upload(List<String> downloadUrls, String userId, String uploadId, String gender,String status,String appDate, String name, String email, String phone, String admNo, String course, String institution, String institutionPhoneNo, String bankName, String bankAccountNo, String bankBranch, String district, String division, String location, String ward, String constituency, String subLocation, String village) {
+    public Upload(List<String> downloadUrls, String userId, String uploadId, String gender,String status,String appDate, String name, String email, String phone, String admNo, String course, String institution, String institutionPhoneNo, String bankName, String bankAccountNo, String bankBranch, String district, String division, String location, String ward, String constituency, String subLocation, String village, String date) {
         this.downloadUrls = downloadUrls;
         this.userId = userId;
         this.uploadId=uploadId;
@@ -52,6 +53,7 @@ public class Upload implements Serializable {
         this.constituency = constituency;
         this.subLocation = subLocation;
         this.village = village;
+        this.date = date;
     }
 
     public Upload() {
@@ -173,8 +175,16 @@ public class Upload implements Serializable {
         return village;
     }
 
+    public String getDate() {
+        return date;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public void setEmail(String email) {
