@@ -19,7 +19,6 @@ public class Fetcher {
 
     public void fetchApplications(CompleteListener listener) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("requests");
-        Query reference1 = FirebaseDatabase.getInstance().getReference("requests").orderByChild("userData");
         eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -32,7 +31,31 @@ public class Fetcher {
                 }
                 Log.e("uploadlist", uploadList.toString());
                 reference.removeEventListener(eventListener);
-                reference1.removeEventListener(eventListener);
+                listener.onUploadFetched(uploadList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        };
+        reference.addListenerForSingleValueEvent(eventListener);
+    }
+
+    public void fetchUserData(CompleteListener listener) {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("requests/userData");
+        eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                List<Upload> uploadList = new ArrayList<>();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Log.e("data", dataSnapshot.toString());
+                    Upload upload = dataSnapshot.getValue(Upload.class);
+                    uploadList.add(upload);
+                }
+                Log.e("uploadlist", uploadList.toString());
+                reference.removeEventListener(eventListener);
                 listener.onUploadFetched(uploadList);
             }
 
