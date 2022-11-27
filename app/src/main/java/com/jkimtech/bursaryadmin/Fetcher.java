@@ -19,8 +19,7 @@ public class Fetcher {
 
     public void fetchApplications(CompleteListener listener) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("requests");
-        String userId = String.valueOf(FirebaseDatabase.getInstance().getInstance().getReference("requests").child("userId"));
-        Query reference1 = FirebaseDatabase.getInstance().getReference("Users").orderByChild("userId").equalTo(userId);
+        Query reference1 = FirebaseDatabase.getInstance().getReference("requests").orderByChild("userData");
         eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -41,7 +41,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.Holder> {
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         Upload upload = uploadList.get(position);
-        holder.statusView.setText("Status:"+ upload.getStatus());
+        holder.statusView.setText(String.format("Status: %s", upload.getStatus()));
         holder.DateView.setText(upload.getAppDate());
         holder.IdView.setText(upload.getUploadId());
         holder.nameView.setText(String.format("Name:%s", upload.getName()));

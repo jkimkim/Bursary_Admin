@@ -11,6 +11,10 @@ public interface CompleteListener {
 
     }
 
+    default void onUserDataFetched(List<User> users){
+
+    }
+
     default void onGenderGroup(int maleCount, int femaleCount,int others){
 
     }
