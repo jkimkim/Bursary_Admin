@@ -16,7 +16,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.Holder> {
     private Context context;
     private List<Upload> uploadList;
     private ClickListener listener;
-    private List<User> userList;
+    private List<User> userData;
 
     public AdminAdapter(Context context, List<Upload> uploadList, ClickListener listener) {
         this.context = context;
@@ -44,24 +44,24 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.Holder> {
         holder.statusView.setText(String.format("Status: %s", upload.getStatus()));
         holder.DateView.setText(upload.getAppDate());
         holder.IdView.setText(upload.getUploadId());
-        holder.nameView.setText(String.format("Name:%s", upload.getName()));
-        holder.emailView.setText(upload.getEmail());
-        holder.phoneView.setText(upload.getPhone());
-        holder.adnoView.setText(upload.getAdmNo());
-        holder.courseView.setText(upload.getCourse());
-        holder.institutionView.setText(upload.getInstitution());
-        holder.institutionPhoneView.setText(upload.getInstitutionPhoneNo());
-        holder.bankView.setText(upload.getBankName());
-        holder.accountNameView.setText(upload.getBankAccountNo());
-        holder.branchView.setText(upload.getBankBranch());
-        holder.districtView.setText(upload.getDistrict());
-        holder.divisionView.setText(upload.getDivision());
-        holder.villageView.setText(upload.getVillage());
-        holder.wardView.setText(upload.getWard());
-        holder.locationView.setText(upload.getLocation());
-        holder.subLocationView.setText(upload.getSubLocation());
-        holder.constituencyView.setText(upload.getConstituency());
-        holder.dobView.setText(upload.getDate());
+        holder.nameView.setText(String.format("Name: %s", upload.getName()));
+        holder.emailView.setText(String.format("Email: %s", upload.getEmail()));
+        holder.phoneView.setText(String.format("Phone: %s", upload.getPhone()));
+        holder.adnoView.setText(String.format("Adm No: %s", upload.getAdmNo()));
+        holder.courseView.setText(String.format("Course%s", upload.getCourse()));
+        holder.institutionView.setText(String.format("Name: %s", upload.getInstitution()));
+        holder.institutionPhoneView.setText(String.format("Inst. No: %s", upload.getInstitutionPhoneNo()));
+        holder.bankView.setText(String.format("Bank: %s", upload.getBankName()));
+        holder.accountNameView.setText(String.format("Account: %s", upload.getBankAccountNo()));
+        holder.branchView.setText(String.format("Branch: %s", upload.getBankBranch()));
+        holder.districtView.setText(String.format("District: %s", upload.getDistrict()));
+        holder.divisionView.setText(String.format("Division: %s", upload.getDivision()));
+        holder.villageView.setText(String.format("Village: %s", upload.getVillage()));
+        holder.wardView.setText(String.format("Ward: %s", upload.getWard()));
+        holder.locationView.setText(String.format("Location: %s", upload.getLocation()));
+        holder.subLocationView.setText(String.format("S.Location: %s", upload.getSubLocation()));
+        holder.constituencyView.setText(String.format("Constituency: %s", upload.getConstituency()));
+        holder.dobView.setText(String.format("DoB: %s", upload.getDate()));
 
     }
 
