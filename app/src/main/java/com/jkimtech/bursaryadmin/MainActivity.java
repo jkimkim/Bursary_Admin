@@ -14,6 +14,8 @@ import android.widget.LinearLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     private AppBarConfiguration mAppBarConfiguration;
     private LinearLayout adminOptions;
+    private StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        storageReference = FirebaseStorage.getInstance().getReference();
         adminOptions = findViewById(R.id.adminSection);
         adminOptions.setOnClickListener(v -> {
             Dialog progressDialog=new Dialog(MainActivity.this);

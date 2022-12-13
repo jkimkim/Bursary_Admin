@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.List;
@@ -62,6 +65,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.Holder> {
         holder.subLocationView.setText(String.format("S.Location: %s", upload.getSubLocation()));
         holder.constituencyView.setText(String.format("Constituency: %s", upload.getConstituency()));
         holder.dobView.setText(String.format("DoB: %s", upload.getDate()));
+        Glide.with(context).load(upload.getDownloadUrls()).into(holder.imageView);
 
     }
 
@@ -72,6 +76,8 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.Holder> {
 
     public static class Holder extends RecyclerView.ViewHolder {
         MaterialTextView IdView, DateView, statusView, nameView, adnoView, courseView, emailView, phoneView, institutionView, institutionPhoneView, bankView, branchView, accountNameView,districtView, divisionView, locationView, wardView, constituencyView, subLocationView, villageView, dobView;
+        MaterialCardView cardView;
+        ShapeableImageView imageView;
 
         public Holder(@NonNull View itemView) {
             super(itemView);
@@ -96,6 +102,8 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.Holder> {
             subLocationView = itemView.findViewById(R.id.sub_location);
             dobView = itemView.findViewById(R.id.dob);
             villageView = itemView.findViewById(R.id.village);
+            cardView = itemView.findViewById(R.id.image_card);
+            imageView = itemView.findViewById(R.id.image);
         }
     }
 }
