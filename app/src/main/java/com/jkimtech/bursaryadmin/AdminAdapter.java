@@ -67,7 +67,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.Holder> {
         holder.subLocationView.setText(String.format("S.Location: %s", upload.getSubLocation()));
         holder.constituencyView.setText(String.format("Constituency: %s", upload.getConstituency()));
         holder.dobView.setText(String.format("DoB: %s", upload.getDate()));
-        Glide.with(context).load(upload.getDownloadUrls().toString()).into(holder.imageView);
+        Glide.with(context).load(uploadList.get(position).getDownloadUrls().get(0)).into(holder.imageView);
 
     }
 
