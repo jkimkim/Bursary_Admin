@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +21,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.Holder> {
     private List<Upload> uploadList;
     private ClickListener listener;
     private List<User> userData;
+    private List<User> downloadUrls;
 
     public AdminAdapter(Context context, List<Upload> uploadList, ClickListener listener) {
         this.context = context;
@@ -65,7 +67,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.Holder> {
         holder.subLocationView.setText(String.format("S.Location: %s", upload.getSubLocation()));
         holder.constituencyView.setText(String.format("Constituency: %s", upload.getConstituency()));
         holder.dobView.setText(String.format("DoB: %s", upload.getDate()));
-        Glide.with(context).load(upload.getDownloadUrls()).into(holder.imageView);
+        Glide.with(context).load(upload.getDownloadUrls().toString()).into(holder.imageView);
 
     }
 
@@ -77,7 +79,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.Holder> {
     public static class Holder extends RecyclerView.ViewHolder {
         MaterialTextView IdView, DateView, statusView, nameView, adnoView, courseView, emailView, phoneView, institutionView, institutionPhoneView, bankView, branchView, accountNameView,districtView, divisionView, locationView, wardView, constituencyView, subLocationView, villageView, dobView;
         MaterialCardView cardView;
-        ShapeableImageView imageView;
+        ImageView imageView;
 
         public Holder(@NonNull View itemView) {
             super(itemView);

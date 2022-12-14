@@ -401,7 +401,7 @@
         app:cardCornerRadius="@dimen/cardview_default_radius"
         android:elevation="10dp">
 
-        <com.google.android.material.imageview.ShapeableImageView
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/image"
