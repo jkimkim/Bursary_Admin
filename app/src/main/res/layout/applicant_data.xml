@@ -386,13 +386,45 @@
         android:textColor="@color/black"
         android:textStyle="normal" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/attachedDocuments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/village"
+        android:layout_centerHorizontal="false"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="5dp"
+        android:text="@string/attached_documents"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/idimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/attachedDocuments"
+        android:layout_centerHorizontal="false"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp"
+        android:text="@string/id_image"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/black"
+        android:textStyle="normal" />
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:id="@+id/image_card"
         android:layout_margin="5dp"
         android:background="@drawable/back_2"
-        android:layout_below="@+id/village"
+        android:layout_below="@+id/idimage"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
@@ -404,9 +436,133 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/image"
+            android:id="@+id/idImage"
             android:scaleType="centerCrop"
-            android:src="@drawable/placeholder"/>
+            android:src="@drawable/placeholder"
+            android:contentDescription="@string/id_image" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/certimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_card"
+        android:layout_centerHorizontal="false"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp"
+        android:text="@string/birth_certificate_image"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/black"
+        android:textStyle="normal" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/certImgCard"
+        android:layout_margin="5dp"
+        android:background="@drawable/back_2"
+        android:layout_below="@+id/certimage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        app:cardCornerRadius="@dimen/cardview_default_radius"
+        android:elevation="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/certImg"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder"
+            android:contentDescription="@string/birth_certificate_image" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/feeimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/certImgCard"
+        android:layout_centerHorizontal="false"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp"
+        android:text="@string/fee_structure_image"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/black"
+        android:textStyle="normal" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/feeImgCard"
+        android:layout_margin="5dp"
+        android:background="@drawable/back_2"
+        android:layout_below="@+id/feeimage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        app:cardCornerRadius="@dimen/cardview_default_radius"
+        android:elevation="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/feeImg"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder"
+            android:contentDescription="@string/fee_structure_image" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/reportimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/feeImgCard"
+        android:layout_centerHorizontal="false"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp"
+        android:text="@string/report_form_image"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/black"
+        android:textStyle="normal" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/reportImgCard"
+        android:layout_margin="5dp"
+        android:background="@drawable/back_2"
+        android:layout_below="@+id/reportimage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        app:cardCornerRadius="@dimen/cardview_default_radius"
+        android:elevation="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/reportImg"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder"
+            android:contentDescription="@string/report_form_image" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -414,7 +570,7 @@
         android:id="@+id/applicationStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/image_card"
+        android:layout_below="@+id/reportImgCard"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"

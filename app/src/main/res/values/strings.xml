@@ -73,6 +73,12 @@
     <string name="county">County</string>
     <string name="sub_location">Sub Location</string>
     <string name="student_details">Student Details</string>
+    <string name="id_image">ID Image</string>
+    <string name="birth_certificate_image">Birth Certificate Image</string>
+    <string name="fee_structure_image">Fee Structure Image</string>
+    <string name="report_form_image">Report Form Image</string>
+    <string name="application_details">Application Details</string>
+    <string name="attached_documents">Attached Documents</string>
 
     <string name="admin_options">Admin Options</string>
 
