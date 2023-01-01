@@ -28,12 +28,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class AdminAdapterDialog extends DialogFragment {
     private RecyclerView recyclerView;
     private AdminAdapter adapter;
     private static List<Upload> uploadList = new ArrayList<>();
-    private ValueEventListener rejectListener, acceptListener;
+    private ValueEventListener rejectListener, acceptListener, disbursedListener;
     private MaterialToolbar toolbar;
 
     public static void showDialog(FragmentManager manager, List<Upload> uploads) {
@@ -78,12 +79,16 @@ public class AdminAdapterDialog extends DialogFragment {
             public void onclick(Upload upload) {
                 new MaterialAlertDialogBuilder(getActivity())
                         .setTitle("Pick an action")
-                        .setItems(new String[]{"Accept", "Reject"}, (dialog, which) -> {
+                        .setItems(new String[]{"Accept", "Reject","Disbursed"}, (dialog, which) -> {
                             if (which == 0) {
                                 accept(upload);
                                 dialog.dismiss();
-                            } else {
+                            } else if (which == 1) {
                                 reject(upload);
+                                dialog.dismiss();
+                            }
+                            else if (which == 2) {
+                                disbursed(upload);
                                 dialog.dismiss();
                             }
                         }).create().show();
@@ -93,6 +98,8 @@ public class AdminAdapterDialog extends DialogFragment {
         return view;
     }
 
+
+    // accept
     private void accept(Upload upload) {
         Dialog progressDialog = new Dialog(getActivity());
         progressDialog.setContentView(R.layout.progressdialog);
@@ -125,13 +132,14 @@ public class AdminAdapterDialog extends DialogFragment {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 progressDialog.dismiss();
-                Toast.makeText(getActivity(), "An Error Occured", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "An Error Occurred", Toast.LENGTH_LONG).show();
 
             }
         };
         reference.addListenerForSingleValueEvent(acceptListener);
     }
 
+    // reject
     private void reject(Upload upload) {
         Dialog progressDialog = new Dialog(getActivity());
         progressDialog.setContentView(R.layout.progressdialog);
@@ -170,6 +178,44 @@ public class AdminAdapterDialog extends DialogFragment {
         reference.addListenerForSingleValueEvent(rejectListener);
     }
 
+    // disbursed
+    private void disbursed(Upload upload) {
+        Dialog progressDialog = new Dialog(getActivity());
+        progressDialog.setContentView(R.layout.progressdialog);
+        progressDialog.setCancelable(false);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        progressDialog.show();
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("requests");
+        rejectListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    if (Objects.requireNonNull(dataSnapshot.child("uploadId").getValue()).toString().equals(upload.getUploadId())) {
+                        DatabaseReference updateRef = reference.child(Objects.requireNonNull(dataSnapshot.getKey())).child("status");
+                        updateRef.setValue("Disbursed")
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        progressDialog.dismiss();
+                                        Toast.makeText(getActivity(), "Disbursed", Toast.LENGTH_LONG).show();
+                                        reference.removeEventListener(rejectListener);
+                                        requireActivity().recreate();
+                                    }
+                                });
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                progressDialog.dismiss();
+                Toast.makeText(getActivity(), "An Error Occurred", Toast.LENGTH_LONG).show();
+            }
+        };
+        reference.addListenerForSingleValueEvent(rejectListener);
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -184,6 +230,9 @@ public class AdminAdapterDialog extends DialogFragment {
         }
         if (acceptListener != null) {
             FirebaseDatabase.getInstance().getReference("requests").removeEventListener(acceptListener);
+        }
+        if (disbursedListener != null) {
+            FirebaseDatabase.getInstance().getReference("requests").removeEventListener(disbursedListener);
         }
     }
 }
