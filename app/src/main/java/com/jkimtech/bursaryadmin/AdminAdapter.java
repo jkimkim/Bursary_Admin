@@ -53,7 +53,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.Holder> {
         holder.emailView.setText(String.format("Email: %s", upload.getEmail()));
         holder.phoneView.setText(String.format("Phone: %s", upload.getPhone()));
         holder.adnoView.setText(String.format("Adm No: %s", upload.getAdmNo()));
-        holder.courseView.setText(String.format("Course%s", upload.getCourse()));
+        holder.courseView.setText(String.format("Course: %s", upload.getCourse()));
         holder.institutionView.setText(String.format("Name: %s", upload.getInstitution()));
         holder.institutionPhoneView.setText(String.format("Inst. No: %s", upload.getInstitutionPhoneNo()));
         holder.bankView.setText(String.format("Bank: %s", upload.getBankName()));
