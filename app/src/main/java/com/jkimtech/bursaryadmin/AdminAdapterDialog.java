@@ -79,16 +79,12 @@ public class AdminAdapterDialog extends DialogFragment {
             public void onclick(Upload upload) {
                 new MaterialAlertDialogBuilder(getActivity())
                         .setTitle("Pick an action")
-                        .setItems(new String[]{"Accept", "Reject","Disbursed"}, (dialog, which) -> {
+                        .setItems(new String[]{"Accept", "Reject"}, (dialog, which) -> {
                             if (which == 0) {
                                 accept(upload);
                                 dialog.dismiss();
                             } else if (which == 1) {
                                 reject(upload);
-                                dialog.dismiss();
-                            }
-                            else if (which == 2) {
-                                disbursed(upload);
                                 dialog.dismiss();
                             }
                         }).create().show();
@@ -114,7 +110,7 @@ public class AdminAdapterDialog extends DialogFragment {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     if (dataSnapshot.child("uploadId").getValue().toString().equals(upload.getUploadId())) {
                         DatabaseReference updateRef = reference.child(dataSnapshot.getKey()).child("status");
-                        updateRef.setValue("Accepted")
+                        updateRef.setValue("wait for allocation")
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
@@ -154,7 +150,7 @@ public class AdminAdapterDialog extends DialogFragment {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     if (dataSnapshot.child("uploadId").getValue().toString().equals(upload.getUploadId())) {
                         DatabaseReference updateRef = reference.child(dataSnapshot.getKey()).child("status");
-                        updateRef.setValue("Rejected")
+                        updateRef.setValue("Kindly Submit new application or visit ward administrator for assistance")
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
