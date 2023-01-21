@@ -18,7 +18,7 @@ public class Fetcher {
     private ValueEventListener eventListener, genderListener;
 
     public void fetchApplications(CompleteListener listener) {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("requests");
+        Query reference = FirebaseDatabase.getInstance().getReference("requests").orderByChild("status").equalTo("Pending");
         eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
